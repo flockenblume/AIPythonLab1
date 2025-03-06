@@ -14,8 +14,9 @@ df["HomePlanet"].fillna(df["HomePlanet"].mode()[0], inplace=True)
 scaler = MinMaxScaler()
 columns_to_scale = ["Age", "RoomService", "FoodCourt", "ShoppingMall", "Spa", "VRDeck"]
 df[columns_to_scale] = scaler.fit_transform(df[columns_to_scale])
+print(df.head())
 
-df = pd.get_dummies(df, columns=["HomePlanet"], drop_first=True)
+df = pd.get_dummies(df, columns=["HomePlanet", "Name"], drop_first=True)
 
 print(df.head())
 
